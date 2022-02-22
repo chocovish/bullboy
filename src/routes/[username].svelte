@@ -37,6 +37,11 @@ import { Modal, ModalBody, Table } from 'sveltestrap';
 	// onMount(getUserExtra);
 </script>
 
+
+<svelte:head>
+	<title>Send anonymous message to {username} - Hushh</title>
+</svelte:head>
+
 <section class="d-flex align-items-center justify-content-center vh-100">
 	<Modal isOpen={modalOpen} toggle={() => (modalOpen = !modalOpen)}>
 		<ModalBody>

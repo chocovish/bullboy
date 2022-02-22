@@ -65,6 +65,11 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Hushh - Get anonymous messages</title>
+</svelte:head>
+
+
 <div
 	style="position:fixed;top:0;left:0;background-image: linear-gradient( 95.2deg, rgba(173,252,234,1) 26.8%, rgba(192,229,246,1) 64% );min-height:100%;min-width:100%"
 />
