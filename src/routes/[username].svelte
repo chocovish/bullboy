@@ -2,9 +2,12 @@
 	import { page } from '$app/stores';
 	import client from '$lib/supabase';
 	import { onMount } from 'svelte';
-import { Table } from 'sveltestrap';
+import { Modal, ModalBody, Table } from 'sveltestrap';
 	let username = $page.params.username;
 	let message = '';
+
+	let modalMsg = ""
+	let modalOpen = false;
 
 	let user_extra = {};
 	async function getUserExtra() {
@@ -25,13 +28,21 @@ import { Table } from 'sveltestrap';
             alert(resp.error.message)
             console.table(resp.error)
         } else {
-            alert("Successfully sent!")
+			message = ""
+			modalMsg = "Sucessfully sent!"
+			modalOpen = true;
+            // alert("Successfully sent!")
         }
     }
 	// onMount(getUserExtra);
 </script>
 
 <section class="d-flex align-items-center justify-content-center vh-100">
+	<Modal isOpen={modalOpen} toggle={() => (modalOpen = !modalOpen)}>
+		<ModalBody>
+			{modalMsg}
+		</ModalBody>
+	</Modal>
 	<div class="container col-12 col-sm-4 text-center">
 		<div class="card p-2 shadow-lg">
 			<div class="card-body">

@@ -38,6 +38,7 @@
 		loading = false;
 	}
 	async function deleteMessage(msg_id) {
+		if (!confirm('You sure wanna delete this message?')) return;
 		let resp = await client.from('messages').delete().eq('id', msg_id);
 		getMessages();
 	}
@@ -64,7 +65,9 @@
 	});
 </script>
 
-<div style="background-image: linear-gradient( 95.2deg, rgba(173,252,234,1) 26.8%, rgba(192,229,246,1) 64% );height:100vh">
+<div
+	style="background-image: linear-gradient( 95.2deg, rgba(173,252,234,1) 26.8%, rgba(192,229,246,1) 64% );height:100%"
+>
 	<NavBar />
 	<Container class="mt-3">
 		<Modal isOpen={modalOpen} toggle={() => (modalOpen = !modalOpen)}>
@@ -78,7 +81,7 @@
 					Your page link: {`${$page.url.host}/${user?.email}`}
 					<Button class="px-2" size="sm" color="secondary" on:click={sharelink}>Share</Button>
 				</div>
-	
+
 				<Input
 					on:change={() => (showOnlyFav = !showOnlyFav)}
 					type="switch"

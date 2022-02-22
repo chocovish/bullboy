@@ -33,7 +33,7 @@ import client from '$lib/supabase';
 </script>
 
 <Card style="" class="rounded-lg m-3 p-2 shadow-lg col-11 col-sm-4">
-	<CardTitle class="text-center">Login With Credentials</CardTitle>
+	<CardTitle class="text-center">SignUp With Credentials</CardTitle>
 
 	<CardBody>
 		<form on:submit|preventDefault={onsignup}>
@@ -46,8 +46,8 @@ import client from '$lib/supabase';
 				<Input type="password" bind:value={password} name="password" placeholder="Password" />
 			</FormGroup>
 			<FormGroup>
-				<Label>Password</Label>
-				<Input type="password" bind:value={password2} name="password" placeholder="Password" />
+				<Label>Repeat Password</Label>
+				<Input type="password" bind:value={password2} name="password" placeholder="Repeat Password" />
 			</FormGroup>
 			<Button block>SignUp</Button>
             <br>
