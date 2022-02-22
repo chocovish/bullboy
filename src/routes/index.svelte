@@ -66,48 +66,47 @@
 </script>
 
 <div
-	style="background-image: linear-gradient( 95.2deg, rgba(173,252,234,1) 26.8%, rgba(192,229,246,1) 64% );height:100%"
->
-	<NavBar />
-	<Container class="mt-3">
-		<Modal isOpen={modalOpen} toggle={() => (modalOpen = !modalOpen)}>
-			<ModalBody>
-				{modalMsg}
-			</ModalBody>
-		</Modal>
-		<div class="row justify-content-center">
-			<div class="col col-12 col-sm-6">
-				<div class="card text-center p-2 shadow">
-					Your page link: {`${$page.url.host}/${user?.email}`}
-					<Button class="px-2" size="sm" color="secondary" on:click={sharelink}>Share</Button>
-				</div>
-
-				<Input
-					on:change={() => (showOnlyFav = !showOnlyFav)}
-					type="switch"
-					label={showOnlyFav ? 'Show all' : 'Show only Favourites'}
-					bsSize="lg"
-					class="my-2"
-				/>
-				{#each messages as msg}
-					<div class="card mt-2">
-						<div class="card-body p-4 m-1">
-							{msg.message}
-						</div>
-						<div class="card-footer text-end">
-							<span class="text-muted">{new Date(msg.created_at).toLocaleString()}</span>
-							<button on:click={() => favToggle(msg)} class="btn btn-warning"
-								>{msg.favourite ? 'Remove from Favourite' : 'Mark as favourite'}</button
-							>
-							<a
-								href="#!"
-								on:click|preventDefault={() => deleteMessage(msg.id)}
-								class="btn btn-danger">Delete</a
-							>
-						</div>
-					</div>
-				{/each}
+	style="position:fixed;top:0;left:0;background-image: linear-gradient( 95.2deg, rgba(173,252,234,1) 26.8%, rgba(192,229,246,1) 64% );min-height:100%;min-width:100%"
+/>
+<NavBar />
+<Container class="mt-3">
+	<Modal isOpen={modalOpen} toggle={() => (modalOpen = !modalOpen)}>
+		<ModalBody>
+			{modalMsg}
+		</ModalBody>
+	</Modal>
+	<div class="row justify-content-center">
+		<div class="col col-12 col-sm-6">
+			<div class="card text-center p-2 shadow">
+				Your page link: {`${$page.url.host}/${user?.email}`}
+				<Button class="px-2" size="sm" color="secondary" on:click={sharelink}>Share</Button>
 			</div>
+
+			<Input
+				on:change={() => (showOnlyFav = !showOnlyFav)}
+				type="switch"
+				label={showOnlyFav ? 'Show all' : 'Show only Favourites'}
+				bsSize="lg"
+				class="my-2"
+			/>
+			{#each messages as msg}
+				<div class="card mt-2">
+					<div class="card-body p-4 m-1">
+						{msg.message}
+					</div>
+					<div class="card-footer text-end">
+						<span class="text-muted">{new Date(msg.created_at).toLocaleString()}</span>
+						<button on:click={() => favToggle(msg)} class="btn btn-warning"
+							>{msg.favourite ? 'Remove from Favourite' : 'Mark as favourite'}</button
+						>
+						<a
+							href="#!"
+							on:click|preventDefault={() => deleteMessage(msg.id)}
+							class="btn btn-danger">Delete</a
+						>
+					</div>
+				</div>
+			{/each}
 		</div>
-	</Container>
-</div>
+	</div>
+</Container>

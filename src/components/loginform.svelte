@@ -33,7 +33,7 @@
 		<CardTitle class="text-center">Login With Credentials</CardTitle>
 	</CardHeader>
 	<CardBody>
-		<form on:submit|preventDefault={onsignin}>
+		<!-- <form on:submit|preventDefault={onsignin}>
 			<FormGroup>
 				<Label>Email ID</Label>
 				<Input bind:value={email} name="email" placeholder="Email" />
@@ -43,8 +43,13 @@
 				<Input bind:value={password} name="password" placeholder="Password" type="password" />
 			</FormGroup>
 			<Button block>SignIn</Button>
+			
 			<br />
 			<Button size="lg" color="dark" block href="/register">SignUp</Button>
-		</form>
+		</form> -->
+
+		<Button color="primary" on:click={() => client.auth.signIn({ provider: 'facebook' })} block
+			>SignIn With <strong>Facebook</strong></Button
+		>
 	</CardBody>
 </Card>

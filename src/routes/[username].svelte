@@ -61,6 +61,6 @@ import { Modal, ModalBody, Table } from 'sveltestrap';
 				</form>
 			</div>
 		</div>
-		<a href="/register" class="btn btn-dark btn-lg mt-4 fw-bold">Make your profile here 😍</a>
+		<a href="/login" class="btn btn-dark btn-lg mt-4 fw-bold">Make your profile here 😍</a>
 	</div>
 </section>
