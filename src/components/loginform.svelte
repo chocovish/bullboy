@@ -19,7 +19,7 @@
 	let email = '';
 	let password = '';
 	async function onsignin() {
-		let resp = await client.auth.signIn({ provider: 'facebook' });
+		let resp = await client.auth.signIn({ provider: 'facebook' },{redirectTo:`//${$page.url.host}`});
 		// if (resp.error) {
 		// 	alert(resp.error.message);
 		// } else {
