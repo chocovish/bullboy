@@ -27,6 +27,7 @@
 	async function sharelink() {
 		navigator.share({
 			title: 'hey tell me something!',
+			text:"Tell me something anonmously",
 			url: `//${$page.url.host}/${user?.email}`
 		});
 	}

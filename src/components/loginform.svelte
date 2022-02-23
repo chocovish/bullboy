@@ -22,6 +22,7 @@
 		if (resp.error) {
 			alert(resp.error.message);
 		} else {
+			await client.from("user_extra").upsert({id:resp.user.id,username:resp.user.email})
 			console.log(resp.user);
 			goto('/');
 		}
