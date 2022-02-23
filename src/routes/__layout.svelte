@@ -6,11 +6,12 @@
 	import { onMount } from 'svelte';
 
 	onMount(() => {
-		client.auth.onAuthStateChange((event) => {
-            console.log("auth state changed,",event);
-            window.location.href = "/"
-			//goto('/', { replaceState: true });
-		});
+		if(!client.auth.user()) goto("/login")
+		// client.auth.onAuthStateChange((event) => {
+        //     console.log("auth state changed,",event);
+        //     //window.location.href = "/"
+		// 	//goto('/', { replaceState: true });
+		// });
 	});
 </script>
 
