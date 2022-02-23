@@ -1,5 +1,6 @@
 <script>
 	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
 
 	import client from '$lib/supabase';
 
@@ -18,14 +19,18 @@
 	let email = '';
 	let password = '';
 	async function onsignin() {
-		let resp = await client.auth.signIn({ email, password });
-		if (resp.error) {
-			alert(resp.error.message);
-		} else {
-			await client.from("user_extra").upsert({id:resp.user.id,username:resp.user.email})
-			console.log(resp.user);
-			goto('/');
-		}
+		let resp = await client.auth.signIn({ provider: 'facebook' });
+		// if (resp.error) {
+		// 	alert(resp.error.message);
+		// } else {
+		// 	console.log('user is', resp.user);
+		// 	let count = await client
+		// 		.from('user_extra')
+		// 		.upsert({ id: resp.user.id, username: resp.user.email });
+		// 		alert("wait..")
+		// 	console.log(resp.user, count);
+		// 	//goto('/');
+		// }
 	}
 </script>
 
@@ -49,7 +54,7 @@
 			<Button size="lg" color="dark" block href="/register">SignUp</Button>
 		</form> -->
 
-		<Button color="primary" on:click={() => client.auth.signIn({ provider: 'facebook' })} block
+		<Button color="primary" on:click={onsignin} block
 			>SignIn With <strong>Facebook</strong></Button
 		>
 	</CardBody>

@@ -1,7 +1,6 @@
 <script>
 	import LoginForm from '../components/loginform.svelte';
 	import NavBar from '../components/nabvar.svelte';
-	import { Container } from 'sveltestrap';
 </script>
 
 <svelte:head>
